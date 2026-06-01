@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "scenario_id": "scenario_6",
+    "name": "Scenario 6 \u2014 Custom",
+    "description": "Custom scenario added during interview."
+  },
+  "world": {
+    "speed_kmph": 100.0,
+    "battery_range_km": 250.0,
+    "charge_time_min": 30.0
+  },
+  "route": {
+    "origin": "Bengaluru",
+    "destination": "Kochi",
+    "segments": [
+      {
+        "from": "Bengaluru",
+        "to": "A",
+        "distance_km": 100.0
+      },
+      {
+        "from": "A",
+        "to": "B",
+        "distance_km": 120.0
+      },
+      {
+        "from": "B",
+        "to": "C",
+        "distance_km": 100.0
+      },
+      {
+        "from": "C",
+        "to": "D",
+        "distance_km": 120.0
+      },
+      {
+        "from": "D",
+        "to": "Kochi",
+        "distance_km": 100.0
+      }
+    ]
+  },
+  "stations": [
+    {
+      "id": "A",
+      "num_chargers": 1,
+      "active": true
+    },
+    {
+      "id": "B",
+      "num_chargers": 1,
+      "active": true
+    },
+    {
+      "id": "C",
+      "num_chargers": 1,
+      "active": true
+    },
+    {
+      "id": "D",
+      "num_chargers": 1,
+      "active": true
+    }
+  ],
+  "weights": {
+    "individual": 1.0,
+    "operator": 1.0,
+    "overall": 1.0
+  },
+  "buses": [
+    {
+      "id": "bus-BK-01",
+      "operator": "kpn",
+      "direction": "BK",
+      "departure": "19:00",
+      "active": true
+    },
+    {
+      "id": "bus-BK-02",
+      "operator": "freshbus",
+      "direction": "BK",
+      "departure": "19:15",
+      "active": true
+    },
+    {
+      "id": "bus-BK-03",
+      "operator": "flixbus",
+      "direction": "BK",
+      "departure": "19:30",
+      "active": true
+    },
+    {
+      "id": "bus-KB-01",
+      "operator": "freshbus",
+      "direction": "KB",
+      "departure": "19:00",
+      "active": true
+    },
+    {
+      "id": "bus-KB-02",
+      "operator": "flixbus",
+      "direction": "KB",
+      "departure": "19:15",
+      "active": true
+    }
+  ]
+}
