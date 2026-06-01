@@ -27,9 +27,10 @@
     {"id": "D", "num_chargers": 1, "active": true}
   ],
   "weights": {
-    "individual": 1.0,
+    "individual": 3.0,
     "operator": 1.0,
-    "overall": 1.0
+    "overall": 1.0,
+    "load_balance": 1.5
   },
   "buses": [
     {"id": "bus-BK-01", "operator": "kpn",      "direction": "BK", "departure": "19:00", "active": true},

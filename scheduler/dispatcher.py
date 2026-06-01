@@ -294,3 +294,42 @@ def _parse_time(time_str: str) -> float:
     """Convert 'HH:MM' clock string to minutes from midnight."""
     h, m = map(int, time_str.split(':'))
     return float(h * 60 + m)
+
+
+def _cost_station_load(
+    plan, bus, route, world, charger_free
+) -> float:
+    """
+    Penalise plans that send this bus to an already-congested station.
+    Looks at how many buses are already queued at each station in the plan
+    and adds a penalty proportional to that queue length.
+    """
+    penalty = 0.0
+    origin       = route.bus_origin(bus.direction)
+    current_loc  = origin
+    current_time = _parse_time(bus.departure)
+    cf_snapshot  = {sid: list(t) for sid, t in charger_free.items()}
+
+    for station_id in plan:
+        if station_id not in cf_snapshot:
+            continue
+        travel  = route.travel_time(current_loc, station_id)
+        arrive  = current_time + travel
+        free_at = min(cf_snapshot[station_id])
+
+        # How many charger slots are busy when this bus arrives?
+        busy_slots = sum(1 for t in cf_snapshot[station_id] if t > arrive)
+        total_slots = len(cf_snapshot[station_id])
+
+        # Congestion ratio — 0.0 means station is free, 1.0 means all chargers busy
+        congestion = busy_slots / total_slots
+        penalty += congestion * 20  # 20 min equivalent penalty per busy slot
+
+        wait       = max(0.0, free_at - arrive)
+        charge_end = arrive + wait + world.charge_time_min
+        idx        = cf_snapshot[station_id].index(min(cf_snapshot[station_id]))
+        cf_snapshot[station_id][idx] = charge_end
+        current_time = charge_end
+        current_loc  = station_id
+
+    return penalty

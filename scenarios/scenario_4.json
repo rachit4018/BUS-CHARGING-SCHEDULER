@@ -29,7 +29,8 @@
   "weights": {
     "individual": 1.0,
     "operator": 2.0,
-    "overall": 1.0
+    "overall": 1.0,
+    "load_balance": 1.5
   },
   "buses": [
     {"id": "bus-BK-01", "operator": "kpn",      "direction": "BK", "departure": "19:00", "active": true},

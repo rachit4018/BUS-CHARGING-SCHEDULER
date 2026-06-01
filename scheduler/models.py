@@ -48,6 +48,7 @@ class Weights:
     individual: float
     operator: float
     overall: float
+    load_balance: float
 
 
 @dataclass
