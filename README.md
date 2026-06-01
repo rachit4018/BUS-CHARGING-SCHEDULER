@@ -4,7 +4,6 @@ A scheduling system for electric buses running the **Bengaluru → Kochi** route
 with charging stations at A, B, C, and D.
 
 **Live App:** [your-app.streamlit.app](https://your-app.streamlit.app)
-**Submission Deadline:** June 2, 2026
 
 ---
 
