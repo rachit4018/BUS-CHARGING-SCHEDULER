@@ -10,7 +10,7 @@ with charging stations at A, B, C, and D.
 ## Quick Start (Local)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/bus-charging-scheduler
+git clone https://github.com/rachit4018/bus-charging-scheduler
 cd bus-charging-scheduler
 pip install -r requirements.txt
 streamlit run app.py
